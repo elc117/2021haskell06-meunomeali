@@ -40,3 +40,20 @@ contido char (x:xs) = if char == x
 translate :: [(Double,Double)] -> [(Double,Double)]
 translate [] = []
 translate (x:xs) = ((\(a,b) -> (a+2.0,b+2.0)) x) : translate xs
+
+
+-- 7) retorna a quantidade de palavras da lista que possuem mais de 5 caracteres
+countLongs :: [String] -> Int
+countLongs [] = 0
+countLongs (x:xs) = if length x > 5
+  then 1 + countLongs xs
+  else countLongs xs
+
+
+-- 8) semelhante a anterior, mas nao retorna um valor e sim uma lsita com as palavras > 5 char
+onlyLongs :: [String] -> [String]
+onlyLongs [] = []
+onlyLongs (x:xs) = if length x > 5
+  then x : onlyLongs xs
+  else onlyLongs xs
+
